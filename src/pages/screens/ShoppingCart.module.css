@@ -1,12 +1,26 @@
+
 .oval {
-    animation-name: ovalAnimation;
-    animation-duration: 10s;
-    animation-iteration-count: infinite;
+  animation-name: ovalAnimation;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes ovalAnimation {
-    0% {rotate: 0deg; top: 50%;}
-    40% {rotate: -2deg; top: 55%;}
-    60% {rotate: -2deg; top: 55%;}
-    100% {rotate: 0deg; top: 50%;}
+  0% {
+    rotate: 0deg;
+    top: 50%;
+  }
+  40% {
+    rotate: -2deg;
+    top: 55%;
+  }
+  60% {
+    rotate: -2deg;
+    top: 55%;
+  }
+  100% {
+    rotate: 0deg;
+    top: 50%;
+  }
 }
+

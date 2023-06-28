@@ -10,7 +10,9 @@ function CartItems() {
   return (
     <Stack>
       {cartItems.length === 0 && (
-        <Typography fontSize={14}>Your cart is empty</Typography>
+        <Typography fontSize={14} color={"#303841"}>
+          Your cart is empty
+        </Typography>
       )}
       {cartItems.length > 0 && (
         <Stack
@@ -19,7 +21,7 @@ function CartItems() {
           className={style["cart-items"]}
         >
           {cartItems.map((item) => (
-            <CartItem item={item} key={item.id}/>
+            <CartItem item={item} key={item.id} />
           ))}
         </Stack>
       )}

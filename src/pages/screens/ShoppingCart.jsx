@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Container, Stack, Typography } from "@mui/material";
+import { Button, Container, Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import MyStack from "../components/MyStack";
 import nike from "../../assets/images/nike.png";
@@ -14,49 +14,64 @@ function ShoppingCart() {
   const { shoes } = sampleData;
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   return (
-    <Stack height={"100%"} width={"100%"} overflow={"hidden"}>
+    <Stack
+      minHeight={"100vh"}
+      width={"100%"}
+      overflow={"hidden"}
+      justifyContent={"center"}
+    >
       <Stack
-        height={"100vh"}
         direction={"row"}
         justifyContent={"center"}
         alignItems={"center"}
-        spacing={4}
         position={"relative"}
+        marginY={2}
       >
-        {/* Our products */}
-        <MyStack>
-          <Stack marginTop={"12px"} position={"sticky"} top={0}>
-            <img src={nike} alt="nike-logo" style={{ width: 50 }} />
-            <Stack marginY={"16px"}>
-              <Typography fontSize={24} fontWeight={700}>
-                Our Products
-              </Typography>
-            </Stack>
-          </Stack>
-          <Stack flexGrow={1}>
-            <ShoeList shoes={shoes} />
-          </Stack>
-        </MyStack>
-
-        {/* Your cart */}
-        <MyStack>
-          <Stack marginTop={"12px"}>
-            <img src={nike} alt="nike-logo" style={{ width: 50 }} />
-            <Stack
-              marginY={"16px"}
-              direction={"row"}
-              justifyContent={"space-between"}
-            >
-              <Typography fontSize={24} fontWeight={700}>
-                Your cart
-              </Typography>
-              <Typography fontSize={24} fontWeight={700}>
-                ${totalPrice.toFixed(2)}
-              </Typography>
-            </Stack>
-          </Stack>
-          <CartItems />
-        </MyStack>
+        <Grid
+          container
+          justifyItems={"center"}
+          columnGap={5}
+          rowGap={5}
+          justifyContent={"center"}
+        >
+          <Grid item>
+            {/* Our products */}
+            <MyStack>
+              <Stack marginTop={"12px"} position={"sticky"} top={0}>
+                <img src={nike} alt="nike-logo" style={{ width: 50 }} />
+                <Stack marginY={"16px"}>
+                  <Typography fontSize={24} fontWeight={700} color={"#303841"}>
+                    Our Products
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Stack flexGrow={1}>
+                <ShoeList shoes={shoes} />
+              </Stack>
+            </MyStack>
+          </Grid>
+          <Grid item>
+            {/* Your cart */}
+            <MyStack>
+              <Stack marginTop={"12px"}>
+                <img src={nike} alt="nike-logo" style={{ width: 50 }} />
+                <Stack
+                  marginY={"16px"}
+                  direction={"row"}
+                  justifyContent={"space-between"}
+                >
+                  <Typography fontSize={24} fontWeight={700} color={"#303841"}>
+                    Your cart
+                  </Typography>
+                  <Typography fontSize={24} fontWeight={700} color={"#303841"}>
+                    ${totalPrice.toFixed(2)}
+                  </Typography>
+                </Stack>
+              </Stack>
+              <CartItems />
+            </MyStack>
+          </Grid>
+        </Grid>
 
         <Stack
           position={"absolute"}

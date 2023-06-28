@@ -8,6 +8,8 @@ import style from "./CartItem.module.css";
 function CartItem({ item }) {
   const dispatch = useDispatch();
   const [animated, setAnimated] = useState(false);
+  const [disappear, setDisappear] = useState(false);
+  const [className, setClassName] = useState("");
 
   useEffect(() => {
     setAnimated(true);
@@ -16,11 +18,25 @@ function CartItem({ item }) {
     }, 500);
   }, []);
 
+  useEffect(() => {
+    if (!item) setDisappear(true);
+    setTimeout(() => {
+      setDisappear(false);
+    }, 500);
+  }, [item]);
+
+  useEffect(() => {
+    if (animated) setClassName((prev) => prev + style.animated);
+    else setClassName((prev) => prev.replace(style.animated, ""));
+    if (disappear) setClassName((prev) => prev + style.disappear);
+    else setClassName((prev) => prev.replace(style.disappear, ""));
+  }, [animated, disappear]);
+
   return (
     <Stack
       direction={"row"}
       justifyContent={"space-between"}
-      className={animated ? style.animated : ""}
+      className={className}
     >
       <Stack minWidth={124}>
         <Stack
@@ -49,6 +65,7 @@ function CartItem({ item }) {
           fontWeight={700}
           lineHeight={1.5}
           style={{ marginBottom: 10 }}
+          color={"#303841"}
           className={style.name}
         >
           {item.name}
@@ -57,6 +74,7 @@ function CartItem({ item }) {
           fontSize={20}
           fontWeight={700}
           style={{ marginBottom: 16 }}
+          color={"#303841"}
           className={style.price}
         >
           ${item.price.toFixed(2)}
@@ -73,7 +91,11 @@ function CartItem({ item }) {
             >
               -
             </IconButton>
-            <Typography style={{ width: 20 }} textAlign={"center"}>
+            <Typography
+              style={{ width: 20 }}
+              textAlign={"center"}
+              color={"#303841"}
+            >
               {item.quantity}
             </Typography>
             <IconButton

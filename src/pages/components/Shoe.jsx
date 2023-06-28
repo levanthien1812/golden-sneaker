@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cartActions } from "../../store/cart";
 import check from "../../assets/images/check.png";
+import style from "./Shoe.module.css";
 
 function Shoe({ shoe }) {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ function Shoe({ shoe }) {
           fontWeight={700}
           margin={"26px 0 20px"}
           lineHeight={1.5}
+          color={"#303841"}
         >
           {shoe.name}
         </Typography>
@@ -55,22 +57,27 @@ function Shoe({ shoe }) {
           alignItems={"center"}
           justifyContent={"space-between"}
         >
-          <Typography fontSize={18} fontWeight={700}>
+          <Typography fontSize={18} fontWeight={700} color={"#303841"}>
             ${shoe.price.toFixed(2)}
           </Typography>
-          <Button
+          <button
             variant="contained"
+            className={style.addBtn}
             style={{
               borderRadius: "50px",
-              backgroundColor: "#f6c90e",
               fontSize: 14,
               fontWeight: 700,
-              color: "black",
               minWidth: 46,
               height: 46,
               padding: "16px 20px",
               transition: "all .5s ease",
               position: "relative",
+              color: "#303841",
+              border: "none",
+              cursor: checkAddedToCart(shoe.id) ? "default" : "pointer",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             onClick={addToCartHandler}
             disabled={checkAddedToCart(shoe.id)}
@@ -82,7 +89,7 @@ function Shoe({ shoe }) {
                 style={{ width: 16, height: 16, position: "absolute" }}
               />
             )}
-          </Button>
+          </button>
         </Stack>
       </Stack>
     </Stack>
