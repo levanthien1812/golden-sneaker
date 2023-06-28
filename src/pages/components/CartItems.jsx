@@ -19,7 +19,7 @@ function CartItems() {
           className={style["cart-items"]}
         >
           {cartItems.map((item) => (
-            <CartItem item={item} />
+            <CartItem item={item} key={item.id}/>
           ))}
         </Stack>
       )}

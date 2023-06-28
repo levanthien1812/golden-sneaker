@@ -18,7 +18,6 @@ function CartItem({ item }) {
 
   return (
     <Stack
-      key={item.id}
       direction={"row"}
       justifyContent={"space-between"}
       className={animated ? style.animated : ""}
