@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import ShoppingCart from "./pages/screens/ShoppingCart";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import { ThemeProvider, createTheme } from "@mui/material";
 
 function App() {
+  const routes = createBrowserRouter([{ path: "", element: <ShoppingCart /> }]);
+  const theme = createTheme({
+    typography: {
+      fontFamily: "Rubik, sans-serif",
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <RouterProvider router={routes} />
+      </Provider>
+    </ThemeProvider>
   );
 }
 

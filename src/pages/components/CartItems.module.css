@@ -1,0 +1,7 @@
+.cart-items::-webkit-scrollbar {
+    width: 0;
+}
+
+.cart-items > div:last-child {
+    margin-bottom: 40px;
+}

@@ -1,0 +1,54 @@
+.animated .name {
+  animation-name: animation;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+}
+.animated .price {
+  animation-name: animation;
+  animation-duration: 500ms;
+  animation-delay: 200ms;
+}
+.animated .quantity {
+  animation-name: animation;
+  animation-duration: 500ms;
+  animation-delay: 300ms;
+}
+
+.animated .image-bg {
+  animation-name: imageBgAnimation;
+  animation-duration: 500ms;
+}
+
+.animated .image {
+  animation-name: imageAnimation;
+  animation-duration: 500ms;
+}
+
+@keyframes animation {
+  0% {
+    opacity: 0;
+    margin-left: 16px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
+  }
+}
+
+@keyframes imageBgAnimation {
+  0% {
+    transform: scale(0.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes imageAnimation {
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: scale(0deg);
+  }
+}

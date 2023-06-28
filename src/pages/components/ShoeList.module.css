@@ -1,0 +1,7 @@
+.shoe-list::-webkit-scrollbar {
+    width: 0;
+}
+
+.shoe-list > div:last-child {
+    margin-bottom: 40px;
+}
