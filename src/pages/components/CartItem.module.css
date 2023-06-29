@@ -29,6 +29,15 @@
   animation-duration: 500ms;
 }
 
+.deleteBtn {
+  background-color: #f6c90e;
+}
+
+.deleteBtn:hover {
+  background-color: #f8d43f;
+  box-shadow: -1px 1px 10px #00000030;
+}
+
 @keyframes animation {
   0% {
     opacity: 0;

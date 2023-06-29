@@ -86,7 +86,12 @@ function CartItem({ item }) {
         >
           <Stack direction={"row"} spacing={1} alignItems={"center"}>
             <IconButton
-              style={{ width: 28, height: 28, backgroundColor: "#eee" }}
+              style={{
+                width: 28,
+                height: 28,
+                backgroundColor: "#eee",
+                color: "#303841",
+              }}
               onClick={() => dispatch(cartActions.decrement(item.id))}
             >
               -
@@ -99,19 +104,34 @@ function CartItem({ item }) {
               {item.quantity}
             </Typography>
             <IconButton
-              style={{ width: 28, height: 28, backgroundColor: "#eee" }}
+              style={{
+                width: 28,
+                height: 28,
+                backgroundColor: "#eee",
+                color: "#303841",
+              }}
               onClick={() => dispatch(cartActions.increment(item.id))}
             >
               +
             </IconButton>
           </Stack>
           <Stack>
-            <IconButton
-              style={{ backgroundColor: "#f6c90e" }}
+            <button
+              style={{
+                border: "none",
+                borderRadius: "50%",
+                width: 30,
+                height: 30,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                cursor: "pointer",
+              }}
+              className={style.deleteBtn}
               onClick={() => dispatch(cartActions.removeFromCart(item.id))}
             >
               <img src={Trash} style={{ width: 16, height: 16 }} />
-            </IconButton>
+            </button>
           </Stack>
         </Stack>
       </Stack>
